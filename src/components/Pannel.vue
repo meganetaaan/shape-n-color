@@ -8,8 +8,8 @@
     <transition-group>
       <div v-for="pannel in pannels"
       :key="pannel.id"
-      class="pannel">
-        {{pannel.msg}}
+      class="pannel"
+      :style="pannel.style">
       </div>
     </transition-group>
   </draggable>
@@ -29,11 +29,15 @@ export default {
       pannels: [
         {
           id: 'hoge',
-          msg: 'hoge'
+          style: {
+            backgroundColor: 'lightcoral'
+          }
         },
         {
           id: 'fuga',
-          msg: 'fuga'
+          style: {
+            backgroundColor: 'lightblue'
+          }
         }
       ]
     }
@@ -46,6 +50,10 @@ export default {
 .pannel {
   width: 100px;
   height: 100px;
-  background-color: lightcoral;
+  transition: all 0.5s ease;
+  /* background-color: lightcoral; */
+  box-sizing: border-box;
+  border: 3px solid #222;
+  margin-bottom: 2px;
 }
 </style>
